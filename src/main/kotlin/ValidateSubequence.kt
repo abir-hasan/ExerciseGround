@@ -33,7 +33,13 @@ fun main() {
     println(result)
 }
 
-
+/**
+ *  {
+ *   "array": [5, 1, 22, 25, 6, -1, 8, 10],
+ *   "sequence": [5, 26, 22, 8]
+ *  }
+ *  Solution is: O(n) time and O(1) Space - where n is the length of the array
+ */
 fun isValidSubsequenceAnotherSolution(array: List<Int>, sequence: List<Int>): Boolean {
     // Write your code here.
     var seqId = 0
