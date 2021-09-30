@@ -48,3 +48,15 @@ fun tournamentWinner(competitions: List<List<String>>, results: List<Int>): Stri
     }
     return winner
 }
+
+fun main() {
+    val winner = tournamentWinner(
+        arrayListOf(
+            arrayListOf("HTML", "C#"),
+            arrayListOf("C#", "Python"),
+            arrayListOf("Python", "HTML")
+        ),
+        mutableListOf(0, 0, 1)
+    )
+    println(winner)
+}
