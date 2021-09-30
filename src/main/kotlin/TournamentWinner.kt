@@ -60,3 +60,35 @@ fun main() {
     )
     println(winner)
 }
+
+fun tournamentWinnerAnotherSolution(
+    competitions: List<List<String>>,
+    results: List<Int>
+): String {
+    val HOME_TOWN_WON = 1
+    val POINTS_ACHIEVED = 3
+    var currentBestTeam = ""
+    val scores = mutableMapOf(currentBestTeam to 0)
+
+    for (idx in competitions.indices) {
+        val competition = competitions[idx]
+        val result = results[idx]
+        val (homeTeam, awayTeam) = competition
+
+        val winningTeam = if (result == HOME_TOWN_WON) homeTeam else awayTeam
+
+        updateScores(winningTeam, POINTS_ACHIEVED, scores)
+
+        if (scores[winningTeam]!! > scores[currentBestTeam]!!) currentBestTeam = winningTeam
+    }
+    return currentBestTeam
+}
+
+fun updateScores(
+    winningTeam: String,
+    pointsAchieved: Int,
+    scores: MutableMap<String, Int>
+) {
+    if (winningTeam !in scores) scores[winningTeam] = 0
+    scores[winningTeam] = scores[winningTeam]!! + pointsAchieved
+}
