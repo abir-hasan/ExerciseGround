@@ -4,7 +4,8 @@ package leetcode
  * Created By Abir Hasan on 19-April-22
  * Problem: Contains Duplicate
  * Category: Arrays
- * Link:
+ * Difficulty: Easy
+ * Link: https://leetcode.com/problems/contains-duplicate/
  */
 
 fun containsDuplicate(nums: IntArray): Boolean {
