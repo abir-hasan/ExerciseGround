@@ -2,13 +2,14 @@ package leetcode
 
 /**
  * Created By Abir Hasan on 19-April-22
- * Problem: Contains Duplicate
+ * Problem: Maximum SubArray [ The Largest Sum Contiguous SubArray ]
  * Category: Arrays
  * Difficulty: Easy
  * Link: https://leetcode.com/problems/maximum-subarray/
  */
 
 fun maxSubArray(nums: IntArray): Int {
+    // First attempt with TLE
     var maxSum = 0
     for (i in nums.indices) {
         maxSum = if (i == 0) nums[0] else if (maxSum < nums[i]) nums[i] else maxSum
@@ -31,8 +32,25 @@ fun maxSubArray(nums: IntArray): Int {
     return maxSum
 }
 
+/**
+ * Explanation of Kadane's Algorithm: https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+ * Time Complexity - O(n)
+ */
+fun maxSubArrayKadensAlgorithm(nums: IntArray): Int {
+    var maxSoFar = Int.MIN_VALUE
+    var maxEndingHere = 0
+    nums.forEach {
+        maxEndingHere += it
+        if (maxSoFar < maxEndingHere)
+            maxSoFar = maxEndingHere
+        if (maxEndingHere < 0)
+            maxEndingHere = 0
+    }
+    return maxSoFar
+}
+
 fun main() {
-    val res = maxSubArray(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4))
-    //val res = maxSubArray(intArrayOf(-2, 1))
+    //val res = maxSubArrayKadensAlgorithm(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4))
+    val res = maxSubArrayKadensAlgorithm(intArrayOf(-2, -1))
     println(res)
 }
