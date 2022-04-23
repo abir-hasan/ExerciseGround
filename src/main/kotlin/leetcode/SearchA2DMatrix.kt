@@ -5,7 +5,7 @@ package leetcode
  * Problem: Search a 2D Matrix
  * Category: Arrays
  * Difficulty: Medium
- * Link: https://leetcode.com/problems/valid-sudoku/
+ * Link: https://leetcode.com/problems/search-a-2d-matrix/
  */
 
 fun searchMatrix(matrix: Array<IntArray>, target: Int): Boolean {
