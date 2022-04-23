@@ -36,9 +36,28 @@ fun isValidSudoku(board: Array<CharArray>): Boolean {
     return true
 }
 
+fun isValidSudokuV2(board: Array<CharArray>): Boolean {
+    val seen: HashSet<String> = hashSetOf()
+    for (i in board.indices) {
+        for (j in board[i].indices) {
+            board[i][j].run {
+                if (this != '.') {
+                    if (
+                        !seen.add("$this seen in row-$i") ||
+                        !seen.add("$this seen in column-$j") ||
+                        !seen.add("$this seen in box-${i / 3}${j / 3}")
+                    )
+                        return false
+                }
+            }
+        }
+    }
+    return true
+}
+
 fun main() {
     // Expected True
-    /* val res = isValidSudoku(
+     val res = isValidSudoku(
          arrayOf(
              charArrayOf('5', '3', '.', '.', '7', '.', '.', '.', '.'),
              charArrayOf('6', '.', '.', '1', '9', '5', '.', '.', '.'),
@@ -50,11 +69,11 @@ fun main() {
              charArrayOf('.', '.', '.', '4', '1', '9', '.', '.', '5'),
              charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
          )
-     )*/
+     )
 
     // Expected False :  Same as Example 1, except with the 5 in the top left corner being modified to 8.
     // Since there are two 8's in the top left 3x3 sub-box, it is invalid.
-    val res = isValidSudoku(
+    /*val res = isValidSudokuV2(
         arrayOf(
             charArrayOf('8', '3', '.', '.', '7', '.', '.', '.', '.'),
             charArrayOf('6', '.', '.', '1', '9', '5', '.', '.', '.'),
@@ -66,6 +85,6 @@ fun main() {
             charArrayOf('.', '.', '.', '4', '1', '9', '.', '.', '5'),
             charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
         )
-    )
+    )*/
     println(res)
 }
