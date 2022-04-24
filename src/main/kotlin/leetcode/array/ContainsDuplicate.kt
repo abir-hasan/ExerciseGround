@@ -1,4 +1,4 @@
-package leetcode
+package leetcode.array
 
 /**
  * Created By Abir Hasan on 19-April-22
