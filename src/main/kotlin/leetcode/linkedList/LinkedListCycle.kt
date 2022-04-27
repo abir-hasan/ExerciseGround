@@ -44,7 +44,7 @@ fun hasCycleV2(head: ListNode?): Boolean {
     while(fast?.next != null) {
         slow = slow?.next           // move slow pointer by 1 position
         fast = fast.next?.next      // move slow pointer by 2 position
-        println("slow: ${slow?.`val`} fast: ${fast?.`val`}")
+        println("slow: ${slow?.value} fast: ${fast?.value}")
         // Cycle found
         if(slow == fast)
             return true
