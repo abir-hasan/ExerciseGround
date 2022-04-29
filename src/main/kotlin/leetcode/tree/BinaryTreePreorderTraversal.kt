@@ -33,8 +33,8 @@ class BinaryTreePreorderTraversal {
 fun main() {
     val node3 = TreeNode(3)
     val node2 = TreeNode(2)
-    node2.left = null
-    node2.right = node3
+    node2.left = node3
+    node2.right = null
     val node1 = TreeNode(1)
     node1.left = null
     node1.right = node2
