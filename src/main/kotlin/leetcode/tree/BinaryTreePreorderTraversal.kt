@@ -12,6 +12,9 @@ class BinaryTreePreorderTraversal {
 
     private val values = mutableListOf<Int>()
 
+    /**
+     * Preorder (Root, Left, Right)
+     */
     fun preorderTraversal(root: TreeNode?): List<Int> {
         val curr = root?.value
         println("value -> $curr")
