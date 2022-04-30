@@ -42,7 +42,7 @@ class BinaryTreePostorderTraversal {
                 items.add(curr)
                 curr = curr.left
                 isRightNodeCalled = false
-            } else if (items.isNotEmpty() && curr == null && !isRightNodeCalled) {// 3 left null
+            } else if (items.isNotEmpty() && curr == null && !isRightNodeCalled) {
                 curr = items[items.size - 1]
                 curr = curr.right
                 isRightNodeCalled = true
@@ -70,6 +70,6 @@ fun main() {
     node1.right = node2
 
     val obj = BinaryTreePostorderTraversal()
-    val nodes = obj.postorderTraversalV2(node1)
+    val nodes = obj.postorderTraversal(node1)
     println("Final Output -> $nodes")
 }
