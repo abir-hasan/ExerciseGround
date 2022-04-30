@@ -31,7 +31,7 @@ class BinaryTreePostorderTraversal {
         return values
     }
 
-    /*fun postorderTraversalV2(root: TreeNode?): List<Int> {
+    fun postorderTraversalV2(root: TreeNode?): List<Int> {
         if (root == null) return listOf()
         val items = mutableListOf<TreeNode>() // Stack
         var curr: TreeNode? = root
@@ -39,7 +39,6 @@ class BinaryTreePostorderTraversal {
         while (items.isNotEmpty() || curr != null) {
             println("stack-> $items")
             if (curr != null && !items.contains(curr)) {
-                //values.add(curr.value)
                 items.add(curr)
                 curr = curr.left
                 isRightNodeCalled = false
@@ -53,11 +52,12 @@ class BinaryTreePostorderTraversal {
                 items.removeAt(items.size - 1)
                 if (items.size > 0)
                     curr = items[items.size - 1]
+                else
                     break
             }
         }
         return values
-    }*/
+    }
 }
 
 fun main() {
@@ -70,6 +70,6 @@ fun main() {
     node1.right = node2
 
     val obj = BinaryTreePostorderTraversal()
-    val nodes = obj.postorderTraversal(node1)
+    val nodes = obj.postorderTraversalV2(node1)
     println("Final Output -> $nodes")
 }
