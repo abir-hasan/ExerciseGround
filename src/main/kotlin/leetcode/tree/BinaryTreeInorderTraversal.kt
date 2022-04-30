@@ -30,6 +30,25 @@ class BinaryTreeInorderTraversal {
         println("END -> $curr")
         return values
     }
+
+    fun inorderTraversalV2(root: TreeNode?): List<Int> {
+        if (root == null) return listOf()
+        val items = mutableListOf<TreeNode>() // Stack
+        var curr: TreeNode? = root
+        while (items.isNotEmpty() || curr != null) {
+            println("curr $curr stack-> $items ")
+            if (curr != null) {
+                items.add(curr)
+                curr = curr.left
+            } else {
+                curr = items[items.size-1]
+                values.add(curr.value)
+                items.removeAt(items.size-1)
+                curr = curr.right
+            }
+        }
+        return values
+    }
 }
 
 fun main() {

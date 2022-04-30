@@ -28,6 +28,25 @@ class BinaryTreePreorderTraversal {
         println("END -> $curr")
         return values
     }
+
+    fun preorderTraversalV2(root: TreeNode?): List<Int> {
+        if (root == null) return listOf()
+        val items = mutableListOf<TreeNode>() // Stack
+        var curr: TreeNode? = root
+        while (items.isNotEmpty() || curr != null) {
+            println("stack-> $items")
+            if (curr != null) {
+                values.add(curr.value)
+                items.add(curr)
+                curr = curr.left
+            } else {
+                curr = items[items.size - 1]
+                items.removeAt(items.size - 1)
+                curr = curr.right
+            }
+        }
+        return values
+    }
 }
 
 fun main() {
